@@ -12,6 +12,54 @@ test("It is possible to create new Node", () => {
   assert.isNull(result.right);
 });
 
+test("Newly created node is leaf", () => {
+  // ARRANGE
+  const target = new Node(13);
+
+  // ACT
+  const result = target.isLeaf();
+
+  // ASSERT
+  assert.isTrue(result);
+});
+
+test("Node with left child is not leaf", () => {
+  // ARRANGE
+  const target = new Node(13);
+  target.left = new Node(21);
+
+  // ACT
+  const result = target.isLeaf();
+
+  // ASSERT
+  assert.isFalse(result);
+});
+
+test("Node with right child is not leaf", () => {
+  // ARRANGE
+  const target = new Node(13);
+  target.right = new Node(21);
+
+  // ACT
+  const result = target.isLeaf();
+
+  // ASSERT
+  assert.isFalse(result);
+});
+
+test("Node with both left and right children is not leaf", () => {
+  // ARRANGE
+  const target = new Node(13);
+  target.right = new Node(21);
+  target.left = new Node(46);
+
+  // ACT
+  const result = target.isLeaf();
+
+  // ASSERT
+  assert.isFalse(result);
+});
+
 test("It is possible to create new Tree", () => {
   // ACT
   const result = new Tree();
