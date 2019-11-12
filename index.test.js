@@ -12,6 +12,8 @@ test("It is possible to create new Node", () => {
   assert.isNull(result.right);
 });
 
+
+
 test("Newly created node is leaf", () => {
   // ARRANGE
   const target = new Node(13);
@@ -26,7 +28,7 @@ test("Newly created node is leaf", () => {
 test("Node with left child is not leaf", () => {
   // ARRANGE
   const target = new Node(13);
-  target.left = new Node(21);
+  target.left = new Node(6);
 
   // ACT
   const result = target.isLeaf();
@@ -51,7 +53,7 @@ test("Node with both left and right children is not leaf", () => {
   // ARRANGE
   const target = new Node(13);
   target.right = new Node(21);
-  target.left = new Node(46);
+  target.left = new Node(6);
 
   // ACT
   const result = target.isLeaf();
@@ -59,6 +61,113 @@ test("Node with both left and right children is not leaf", () => {
   // ASSERT
   assert.isFalse(result);
 });
+
+
+
+test("Newly created node has not left child", () => {
+  // ARRANGE
+  const target = new Node(13);
+
+  // ACT
+  const result = target.hasLeftChild();
+
+  // ASSERT
+  assert.isFalse(result);
+});
+
+test("Node with left child only has left child", () => {
+  // ARRANGE
+  const target = new Node(13);
+  target.left = new Node(4);
+
+  // ACT
+  const result = target.hasLeftChild();
+
+  // ASSERT
+  assert.isTrue(result);
+});
+
+test("Node with right child only has not left child", () => {
+  // ARRANGE
+  const target = new Node(13);
+  target.right = new Node(40);
+
+  // ACT
+  const result = target.hasLeftChild();
+
+  // ASSERT
+  assert.isFalse(result);
+});
+
+test("Node with both left and right children has left child", () => {
+  // ARRANGE
+  const target = new Node(13);
+  target.right = new Node(40);
+  target.left = new Node(10);
+
+  // ACT
+  const result = target.hasLeftChild();
+
+  // ASSERT
+  assert.isTrue(result);
+});
+
+
+
+test("Newly created node has not right child", () => {
+  // ARRANGE
+  const target = new Node(13);
+
+  // ACT
+  const result = target.hasRightChild();
+
+  // ASSERT
+  assert.isFalse(result);
+});
+
+test("Node with left child only has not right child", () => {
+  // ARRANGE
+  const target = new Node(13);
+  target.left = new Node(4);
+
+  // ACT
+  const result = target.hasRightChild();
+
+  // ASSERT
+  assert.isFalse(result);
+});
+
+test("Node with right child only has right child", () => {
+  // ARRANGE
+  const target = new Node(13);
+  target.right = new Node(40);
+
+  // ACT
+  const result = target.hasRightChild();
+
+  // ASSERT
+  assert.isTrue(result);
+});
+
+test("Node with both left and right children has right child", () => {
+  // ARRANGE
+  const target = new Node(13);
+  target.right = new Node(40);
+  target.left = new Node(10);
+
+  // ACT
+  const result = target.hasRightChild();
+
+  // ASSERT
+  assert.isTrue(result);
+});
+
+
+
+
+
+
+
 
 test("It is possible to create new Tree", () => {
   // ACT
