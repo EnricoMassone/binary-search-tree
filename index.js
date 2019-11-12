@@ -43,6 +43,34 @@ class Tree {
     }
   }
 
+  addIterative(value) {
+    if (this.root === null) {
+      this.root = new Node(value);
+      return;
+    }
+
+    let current = this.root;
+
+    // eslint-disable-next-line no-constant-condition
+    while (true) {
+      if (value <= current.value && !current.hasLeftChild()) {
+        current.left = new Node(value);
+        break;
+      }
+
+      if (value > current.value && !current.hasRightChild()) {
+        current.right = new Node(value);
+        break;
+      }
+
+      if (value <= current.value) {
+        current = current.left;
+      } else {
+        current = current.right;
+      }
+    }
+  }
+
   toObject() {
     return this.root;
   }
