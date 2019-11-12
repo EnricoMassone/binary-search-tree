@@ -1,0 +1,25 @@
+{
+  "name": "binary-search-tree",
+  "version": "1.0.0",
+  "description": "Javascript implementation of the binary search tree data structure",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EnricoMassoneDeltatre/binary-search-tree.git"
+  },
+  "keywords": [
+    "Javascript",
+    "ES6",
+    "tree",
+    "data-structure"
+  ],
+  "author": "Enrico Massone",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/EnricoMassoneDeltatre/binary-search-tree/issues"
+  },
+  "homepage": "https://github.com/EnricoMassoneDeltatre/binary-search-tree#readme"
+}
