@@ -14,6 +14,10 @@ class Tree {
   add(value) {
     throw new Error("Not implemented yet");
   }
+
+  toObject() {
+    return this.root;
+  }
 }
 
 exports.Node = Node;
