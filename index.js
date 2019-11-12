@@ -38,21 +38,38 @@ class Tree {
   add(value) {
     if (this.root === null) {
       this.root = new Node(value);
-      return;
+    } else {
+      addValueToTree(this.root, value);
     }
-
-    if (this.root.isLeaf()) {
-      appendChildToLeaf(this.root, value);
-      return;
-    }
-
-    //if (value <= this.root.value && )
   }
 
   toObject() {
     return this.root;
   }
 }
+
+const addValueToTree = (treeRoot, value) => {
+  if (treeRoot.isLeaf()) {
+    appendChildToLeaf(treeRoot, value);
+    return;
+  }
+
+  if (value <= treeRoot.value && !treeRoot.hasLeftChild()) {
+    treeRoot.left = new Node(value);
+    return;
+  }
+
+  if (value > treeRoot.value && !treeRoot.hasRightChild()) {
+    treeRoot.right = new Node(value);
+    return;
+  }
+
+  if (value <= treeRoot.value) {
+    addValueToTree(treeRoot.left, value);
+  } else {
+    addValueToTree(treeRoot.right, value);
+  }
+};
 
 exports.Node = Node;
 exports.Tree = Tree;
