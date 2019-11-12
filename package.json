@@ -21,5 +21,10 @@
   "bugs": {
     "url": "https://github.com/EnricoMassoneDeltatre/binary-search-tree/issues"
   },
-  "homepage": "https://github.com/EnricoMassoneDeltatre/binary-search-tree#readme"
+  "homepage": "https://github.com/EnricoMassoneDeltatre/binary-search-tree#readme",
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "eslint": "^6.6.0",
+    "jest": "^24.9.0"
+  }
 }
